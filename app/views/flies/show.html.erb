@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Fly #<%= @the_fly.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/flies">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_fly/<%= @the_fly.id %>">
+          Delete fly
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_fly.name %>
+      </dd>
+
+      <dt>
+        Photo
+      </dt>
+      <dd>
+        <%= @the_fly.photo %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_fly.description %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_fly.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_fly.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit fly
+    </h2>
+
+    <form action="/modify_fly/<%= @the_fly.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_fly.name %>">
+      </div>
+
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo" value="<%= @the_fly.photo %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_fly.description %>">
+      </div>
+
+      <button>
+        Update fly
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

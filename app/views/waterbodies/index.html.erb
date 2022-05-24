@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all waterbodies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new waterbody
+    </h2>
+
+    <form action="/insert_waterbody" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo">
+      </div>
+
+      <button>
+        Create waterbody
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Photo
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_waterbodies.each do |a_waterbody| %>
+      <tr>
+        <td>
+          <%= a_waterbody.id %>
+        </td>
+
+        <td>
+          <%= a_waterbody.name %>
+        </td>
+
+        <td>
+          <%= a_waterbody.photo %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_waterbody.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_waterbody.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/waterbodies/<%= a_waterbody.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

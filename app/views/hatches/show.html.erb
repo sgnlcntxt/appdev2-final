@@ -1,0 +1,146 @@
+<div>
+  <div>
+    <h1>
+      Hatch #<%= @the_hatch.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/hatches">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_hatch/<%= @the_hatch.id %>">
+          Delete hatch
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Bug
+      </dt>
+      <dd>
+        <%= @the_hatch.bug_id %>
+      </dd>
+
+      <dt>
+        Start date
+      </dt>
+      <dd>
+        <%= @the_hatch.start_date %>
+      </dd>
+
+      <dt>
+        End date
+      </dt>
+      <dd>
+        <%= @the_hatch.end_date %>
+      </dd>
+
+      <dt>
+        Waterbody
+      </dt>
+      <dd>
+        <%= @the_hatch.waterbody_id %>
+      </dd>
+
+      <dt>
+        Minimum size
+      </dt>
+      <dd>
+        <%= @the_hatch.minimum_size %>
+      </dd>
+
+      <dt>
+        Maximum size
+      </dt>
+      <dd>
+        <%= @the_hatch.maximum_size %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_hatch.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_hatch.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit hatch
+    </h2>
+
+    <form action="/modify_hatch/<%= @the_hatch.id %>"  method="post" >
+      <div>
+        <label for="bug_id_box">
+          Bug
+        </label>
+
+        <input type="text" id="bug_id_box" name="query_bug_id" value="<%= @the_hatch.bug_id %>">
+      </div>
+
+      <div>
+        <label for="start_date_box">
+          Start date
+        </label>
+
+        <input type="date" id="start_date_box" name="query_start_date" value="<%= @the_hatch.start_date %>">
+      </div>
+
+      <div>
+        <label for="end_date_box">
+          End date
+        </label>
+
+        <input type="text" id="end_date_box" name="query_end_date" value="<%= @the_hatch.end_date %>">
+      </div>
+
+      <div>
+        <label for="waterbody_id_box">
+          Waterbody
+        </label>
+
+        <input type="text" id="waterbody_id_box" name="query_waterbody_id" value="<%= @the_hatch.waterbody_id %>">
+      </div>
+
+      <div>
+        <label for="minimum_size_box">
+          Minimum size
+        </label>
+
+        <input type="text" id="minimum_size_box" name="query_minimum_size" value="<%= @the_hatch.minimum_size %>">
+      </div>
+
+      <div>
+        <label for="maximum_size_box">
+          Maximum size
+        </label>
+
+        <input type="text" id="maximum_size_box" name="query_maximum_size" value="<%= @the_hatch.maximum_size %>">
+      </div>
+
+      <button>
+        Update hatch
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

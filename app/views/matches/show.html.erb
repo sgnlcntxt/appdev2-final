@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Match #<%= @the_match.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/matches">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_match/<%= @the_match.id %>">
+          Delete match
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Fly
+      </dt>
+      <dd>
+        <%= @the_match.fly_id %>
+      </dd>
+
+      <dt>
+        Bug
+      </dt>
+      <dd>
+        <%= @the_match.bug_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_match.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_match.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit match
+    </h2>
+
+    <form action="/modify_match/<%= @the_match.id %>"  method="post" >
+      <div>
+        <label for="fly_id_box">
+          Fly
+        </label>
+
+        <input type="text" id="fly_id_box" name="query_fly_id" value="<%= @the_match.fly_id %>">
+      </div>
+
+      <div>
+        <label for="bug_id_box">
+          Bug
+        </label>
+
+        <input type="text" id="bug_id_box" name="query_bug_id" value="<%= @the_match.bug_id %>">
+      </div>
+
+      <button>
+        Update match
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

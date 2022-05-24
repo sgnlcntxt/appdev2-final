@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Waterbody #<%= @the_waterbody.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/waterbodies">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_waterbody/<%= @the_waterbody.id %>">
+          Delete waterbody
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_waterbody.name %>
+      </dd>
+
+      <dt>
+        Photo
+      </dt>
+      <dd>
+        <%= @the_waterbody.photo %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_waterbody.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_waterbody.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit waterbody
+    </h2>
+
+    <form action="/modify_waterbody/<%= @the_waterbody.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_waterbody.name %>">
+      </div>
+
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo" value="<%= @the_waterbody.photo %>">
+      </div>
+
+      <button>
+        Update waterbody
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
