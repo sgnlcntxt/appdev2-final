@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all flies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new fly
+    </h2>
+
+    <form action="/insert_fly" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="photo_box">
+          Photo
+        </label>
+
+        <input type="text" id="photo_box" name="query_photo">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description">
+      </div>
+
+      <button>
+        Create fly
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Photo
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_flies.each do |a_fly| %>
+      <tr>
+        <td>
+          <%= a_fly.id %>
+        </td>
+
+        <td>
+          <%= a_fly.name %>
+        </td>
+
+        <td>
+          <%= a_fly.photo %>
+        </td>
+
+        <td>
+          <%= a_fly.description %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_fly.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_fly.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/flies/<%= a_fly.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
